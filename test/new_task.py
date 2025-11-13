@@ -5,6 +5,7 @@ import requests
 
 @pytest.mark.xfail(reason = 'bug')
 def test_add_and_delete_task():
+    ''' Cоздает задачу, удаляет задачу, проверяет статус код = 404'''
     body = {"title":"Новая задача", "completed":False}
     response = requests.post("https://todo-app-sky.herokuapp.com/", json=body)
     id = response.json()["id"]
